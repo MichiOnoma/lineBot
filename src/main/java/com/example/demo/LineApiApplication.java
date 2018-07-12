@@ -5,8 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
+
 @SpringBootApplication
-//@LineMessageHandler
+@LineMessageHandler
 @RestController
 public class LineApiApplication {
 
