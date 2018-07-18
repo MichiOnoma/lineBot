@@ -42,10 +42,14 @@ public class LineApiService {
 	 * @return void
 	 */
 	public KeyWord save(String userId, String key, String content) {
+
 		KeyWord keyword =  new KeyWord();
 		keyword.setUserId(userId);
 		keyword.setKeyword(key);
 		keyword.setContent(content);
+		LocalTime tim = LocalTime.now();
+		keyword.setCreateddate(tim);
+
 		keywordRepository.deleteByUserIdAndKeyword(userId, key);
 		return keywordRepository.save(keyword);
 	}
@@ -57,4 +61,17 @@ public class LineApiService {
 		LocalTime time = LocalTime.now().minus(LineApiConst.VAL.SHELF_LIFE, ChronoUnit.DAYS);
 		keywordRepository.deleteByCreateddateBefore(time);
 	}
+
+	public List<KeyWord> findAll() {
+		return keywordRepository.findAll();
+	}
+
+	public void delete() {
+		keywordRepository.deleteAll();
+	}
+
+	public void deleteSharp(String userId) {
+		keywordRepository.deleteByUserIdAndKeyword(userId, LineApiConst.VAL.SHARP);
+	}
+
 }

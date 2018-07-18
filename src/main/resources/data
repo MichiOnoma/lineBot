@@ -1,3 +1,0 @@
-INSERT INTO keyword(userId, keyword, content) VALUES('niitsuma', 'キー１',  'ワード');
-INSERT INTO keyword(userId, keyword, content) VALUES('niitsuma', 'キー２',  'ワード２');
-INSERT INTO keyword(userId, keyword, content) VALUES('niitsma', 'キー',  'ワード');
