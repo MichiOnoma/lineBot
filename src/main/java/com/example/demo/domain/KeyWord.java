@@ -1,6 +1,6 @@
 package com.example.demo.domain;
 
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,5 +34,5 @@ public class KeyWord {
 	@Column(length = 1000)
 	private String content;
     @CreatedDate
-    private LocalTime createddate;
+    private LocalDateTime createddate;
 }

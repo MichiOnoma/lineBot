@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
-import java.time.LocalTime;
-import java.time.temporal.ChronoUnit;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +46,7 @@ public class LineApiService {
 		keyword.setUserId(userId);
 		keyword.setKeyword(key);
 		keyword.setContent(content);
-		LocalTime tim = LocalTime.now();
+		LocalDateTime tim = LocalDateTime.now();
 		keyword.setCreateddate(tim);
 
 		keywordRepository.deleteByUserIdAndKeyword(userId, key);
@@ -58,7 +57,8 @@ public class LineApiService {
 	 * SHELF_LIFE以前に登録されたものは削除するサービス
 	 */
 	public void cleanUp() {
-		LocalTime time = LocalTime.now().minus(LineApiConst.VAL.SHELF_LIFE * 2, ChronoUnit.HALF_DAYS);
+		LocalDateTime time = LocalDateTime.now();
+		time.minusDays(LineApiConst.VAL.SHELF_LIFE);
 		keywordRepository.deleteByCreateddateBefore(time);
 	}
 

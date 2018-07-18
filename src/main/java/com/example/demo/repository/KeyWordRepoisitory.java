@@ -1,6 +1,6 @@
 package com.example.demo.repository;
 
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,6 +18,6 @@ public interface KeyWordRepoisitory extends JpaRepository<KeyWord, Integer> {
 
 	public void deleteByUserIdAndKeyword(String userId, String key);
 
-	public void deleteByCreateddateBefore(LocalTime createddate);
+	public void deleteByCreateddateBefore(LocalDateTime createddate);
 
 	}
