@@ -58,7 +58,7 @@ public class LineApiService {
 	 * SHELF_LIFE以前に登録されたものは削除するサービス
 	 */
 	public void cleanUp() {
-		LocalTime time = LocalTime.now().minus(LineApiConst.VAL.SHELF_LIFE, ChronoUnit.DAYS);
+		LocalTime time = LocalTime.now().minus(LineApiConst.VAL.SHELF_LIFE * 2, ChronoUnit.HALF_DAYS);
 		keywordRepository.deleteByCreateddateBefore(time);
 	}
 
