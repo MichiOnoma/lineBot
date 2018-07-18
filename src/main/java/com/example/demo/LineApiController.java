@@ -48,9 +48,9 @@ public class LineApiController {
                 new MessageAction(LineApiConst.BUTTON.REF, LineApiConst.BUTTON.REF),
                 new MessageAction(LineApiConst.BUTTON.SAVE, LineApiConst.BUTTON.SAVE)
         );
-        TemplateMessage templateMessage = new TemplateMessage("Confirm alt text", confirmTemplate);
+        TemplateMessage templateMessage = new TemplateMessage(LineApiConst.MESSAGE.CONFIRM_TITLE, confirmTemplate);
         this.reply(replyToken, templateMessage);
-		this.replyText(replyToken, "Bot can't use profile API without user ID");
+//		this.replyText(replyToken, "Bot can't use profile API without user ID");
 	}
 
 	private void replyText(@NonNull String replyToken, @NonNull String message) {

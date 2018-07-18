@@ -6,6 +6,7 @@ public final class LineApiConst {
 		public static final String KAKKO1 = "「";
 		public static final String KAKKO2 = "」";
 		public static final String CONFIRM_MSG = "について保存しますか参照しますか。";
+		public static final String CONFIRM_TITLE = "確認メッセージを送信しました。";
 	}
 
 	public static class BUTTON {
