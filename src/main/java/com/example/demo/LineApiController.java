@@ -36,13 +36,14 @@ public class LineApiController {
 
 	@EventMapping
 	public void handleTextMessageEvent(MessageEvent<TextMessageContent> event) throws Exception {
-		handleTextContent(event.getReplyToken(), event.getMessage());
+		itemService.cleanUp(); //クリーンアップ
+		handleTextContent(event.getReplyToken(), event.getMessage(), event);
 	}
 
-	private void handleTextContent(String replyToken,  TextMessageContent content)
+	private void handleTextContent(String replyToken,  TextMessageContent content, MessageEvent<TextMessageContent> event)
 			throws Exception {
 		String text = content.getText();
-		String userId = content.getId();
+		String userId = event.getSource().getUserId();
 		log.info("Got text message from {}: {}", replyToken, text);
 
 		// キーワードメッセージを返したものには反応しないようにする
