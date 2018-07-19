@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,14 +40,13 @@ public class LineApiService {
 	 * @param word
 	 * @return void
 	 */
-	public KeyWord save(String userId, String key, String content) {
+	public KeyWord save(String userId, String key, String content, ZonedDateTime time) {
 
 		KeyWord keyword =  new KeyWord();
 		keyword.setUserId(userId);
 		keyword.setKeyword(key);
 		keyword.setContent(content);
-		LocalDateTime tim = LocalDateTime.now();
-		keyword.setCreateddate(tim);
+		keyword.setCreateddate(time);
 
 		keywordRepository.deleteByUserIdAndKeyword(userId, key);
 		return keywordRepository.save(keyword);
@@ -56,8 +55,7 @@ public class LineApiService {
 	/**
 	 * SHELF_LIFE以前に登録されたものは削除するサービス
 	 */
-	public void cleanUp() {
-		LocalDateTime time = LocalDateTime.now();
+	public void cleanUp(ZonedDateTime  time) {
 		time.minusDays(LineApiConst.VAL.SHELF_LIFE);
 		keywordRepository.deleteByCreateddateBefore(time);
 	}

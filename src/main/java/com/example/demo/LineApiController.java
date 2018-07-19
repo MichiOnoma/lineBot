@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -36,7 +38,7 @@ public class LineApiController {
 
 	@EventMapping
 	public void handleTextMessageEvent(MessageEvent<TextMessageContent> event) throws Exception {
-		itemService.cleanUp(); //クリーンアップ
+		itemService.cleanUp(event.getTimestamp().atZone(ZoneId.systemDefault())); //クリーンアップ
 		handleTextContent(event.getReplyToken(), event.getMessage(), event);
 	}
 
@@ -44,6 +46,7 @@ public class LineApiController {
 			throws Exception {
 		String text = content.getText();
 		String userId = event.getSource().getUserId();
+		ZonedDateTime datetime =  event.getTimestamp().atZone(ZoneId.systemDefault());
 		log.info("Got text message from {}: {}", replyToken, text);
 
 		// キーワードメッセージを返したものには反応しないようにする
@@ -60,14 +63,14 @@ public class LineApiController {
 				this.replyText(replyToken, LineApiConst.MESSAGE.NG_WORD);
 
 			// 文字セットと確認ダイアログを返す
-			setKeyWord(replyToken, userId, text);
+			setKeyWord(replyToken, userId, text, datetime);
 		} else {
         	String content_str = list.get(0).getContent();
 
 	        switch (text) {
 	        	// 保存
 	        	case LineApiConst.BUTTON.SAVE : {
-	        		saveKeyWord(replyToken, userId, content_str);
+	        		saveKeyWord(replyToken, userId, content_str, datetime);
 	        		break;
 	        	}
 				// 参照
@@ -90,7 +93,7 @@ public class LineApiController {
 	        		int idx = content_str.indexOf(LineApiConst.BUTTON.SAVE + LineApiConst.VAL.SHARP);
 	        		if (idx >=0) {
 	        			saveKeyContent(replyToken, userId,
-	        					content_str.substring(new String(LineApiConst.BUTTON.SAVE + LineApiConst.VAL.SHARP).length() + 1), text);
+	        					content_str.substring(new String(LineApiConst.BUTTON.SAVE + LineApiConst.VAL.SHARP).length() + 1), text, datetime);
 	        		}
 	        	break;
 			}
@@ -101,8 +104,8 @@ public class LineApiController {
 	}
 
 	// 1番最初のキーワードを入力したとき
-	private void setKeyWord(String replyToken, String userId, String text) {
-		itemService.save(userId, LineApiConst.VAL.SHARP, text);
+	private void setKeyWord(String replyToken, String userId, String text, ZonedDateTime datetime) {
+		itemService.save(userId, LineApiConst.VAL.SHARP, text, datetime);
 		ConfirmTemplate confirmTemplate = new ConfirmTemplate(
 				LineApiConst.setKakko(text) + LineApiConst.MESSAGE.CONFIRM_MSG,
 				new MessageAction(LineApiConst.BUTTON.REF, LineApiConst.BUTTON.REF),
@@ -113,13 +116,13 @@ public class LineApiController {
 	}
 
 	// 1番最初のキーワードを入力した後、保存を選択したとき
-	private void saveKeyWord(String replyToken, String userId, String keyword) {
-		itemService.save(userId, LineApiConst.VAL.SHARP, LineApiConst.BUTTON.SAVE + LineApiConst.VAL.SHARP + keyword);
+	private void saveKeyWord(String replyToken, String userId, String keyword, ZonedDateTime datetime) {
+		itemService.save(userId, LineApiConst.VAL.SHARP, LineApiConst.BUTTON.SAVE + LineApiConst.VAL.SHARP + keyword, datetime);
 		this.replyText(replyToken, LineApiConst.setKakko(keyword) + LineApiConst.MESSAGE.SAVE_MSG);
 	}
 
-	private void saveKeyContent(String replyToken, String userId, String keyword, String content) {
-		itemService.save(userId, keyword, content);
+	private void saveKeyContent(String replyToken, String userId, String keyword, String content, ZonedDateTime datetime) {
+		itemService.save(userId, keyword, content, datetime);
 		this.replyText(replyToken, LineApiConst.setKakko(keyword) + LineApiConst.MESSAGE.SAVE_COMPLETE_MSG);
 	}
 
