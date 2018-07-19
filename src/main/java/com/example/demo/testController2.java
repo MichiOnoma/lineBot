@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +19,9 @@ public class testController2 {
 	    @GetMapping
 	    String deterItems() {
 	        itemService.delete();
-	        return "Delete!!";
+
+	        ZonedDateTime time = ZonedDateTime.now(ZoneId.systemDefault());
+	        return time.toString();
 	    }
 
 

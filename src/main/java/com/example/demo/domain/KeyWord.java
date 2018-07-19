@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.springframework.data.annotation.CreatedDate;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,6 +31,5 @@ public class KeyWord {
 	private String keyword;
 	@Column(length = 1000)
 	private String content;
-    @CreatedDate
     private ZonedDateTime createddate;
 }
