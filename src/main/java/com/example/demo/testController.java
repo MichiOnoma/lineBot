@@ -17,9 +17,9 @@ public class testController {
 	    LineApiService itemService;
 
 	    @GetMapping
-	    List<KeyWord> getItems() {
-	    	return itemService.findAll();
-
+	    String getItems() {
+	    	List<KeyWord> list = itemService.findAll();
+	    	return list.get(0).getCreateddate().toString();
 	    }
 
 
