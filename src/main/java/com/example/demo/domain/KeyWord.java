@@ -31,5 +31,6 @@ public class KeyWord {
 	private String keyword;
 	@Column(length = 1000)
 	private String content;
+	@Column(nullable = false)
     private ZonedDateTime createddate;
 }
