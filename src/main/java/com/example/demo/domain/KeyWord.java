@@ -1,12 +1,13 @@
 package com.example.demo.domain;
 
-import java.time.ZonedDateTime;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -31,6 +32,11 @@ public class KeyWord {
 	private String keyword;
 	@Column(length = 1000)
 	private String content;
-	@Column(nullable = false)
-    private ZonedDateTime createddate;
+	@Column(name="createddate")
+	private Date createddate;
+
+	@PrePersist
+    public void onPrePersist() {
+        setCreateddate(new Date());
+    }
 }

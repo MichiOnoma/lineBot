@@ -47,7 +47,6 @@ public class LineApiService {
 		keyword.setUserId(userId);
 		keyword.setKeyword(key);
 		keyword.setContent(content);
-		keyword.setCreateddate(ZonedDateTime.now(ZoneId.systemDefault()));
 
 		keywordRepository.deleteByUserIdAndKeyword(userId, key);
 		return keywordRepository.save(keyword);
