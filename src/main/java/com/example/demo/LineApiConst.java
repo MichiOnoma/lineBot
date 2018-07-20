@@ -8,6 +8,7 @@ public final class LineApiConst {
 		public static final String NG_WORD = "この文字は利用できません。";
 		public static final String SAVE_MSG = "の内容を入力してください。";
 		public static final String CANCEL = "キャンセルしました。";
+		public static final String NO_DATA_MSG = "について保存内容はありません。";
 		public static String SAVE_COMPLETE_MSG = "の内容を保存しました。";
 	}
 

@@ -1,9 +1,6 @@
 package com.example.demo;
 
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -39,10 +36,6 @@ public class LineApiController {
 
 	@EventMapping
 	public void handleTextMessageEvent(MessageEvent<TextMessageContent> event) throws Exception {
-		ZonedDateTime time = ZonedDateTime.now(ZoneId.systemDefault()).minusDays(LineApiConst.VAL.SHELF_LIFE);
-		log.info("****************CleanUp!!!!" + Date.from(time.toInstant()).toString());
-
-
 		itemService.cleanUp(); //クリーンアップ
 		handleTextContent(event.getReplyToken(), event.getMessage(), event);
 	}
@@ -98,7 +91,7 @@ public class LineApiController {
 	        		int idx = content_str.indexOf(LineApiConst.BUTTON.SAVE + LineApiConst.VAL.SHARP);
 	        		if (idx >=0) {
 	        			saveKeyContent(replyToken, userId,
-	        					content_str.substring(new String(LineApiConst.BUTTON.SAVE + LineApiConst.VAL.SHARP).length() + 1), text);
+	        					content_str.substring(new String(LineApiConst.BUTTON.SAVE + LineApiConst.VAL.SHARP).length()), text);
 	        		}
 	        	break;
 			}
@@ -111,7 +104,6 @@ public class LineApiController {
 	// 1番最初のキーワードを入力したとき
 	private void setKeyWord(String replyToken, String userId, String text) {
 		KeyWord key = itemService.save(userId, LineApiConst.VAL.SHARP, text);
-		log.info("+++++++++++++++++++++++++++++++++++"+key.getCreateddate().toString());
 		ConfirmTemplate confirmTemplate = new ConfirmTemplate(
 				LineApiConst.setKakko(text) + LineApiConst.MESSAGE.CONFIRM_MSG,
 				new MessageAction(LineApiConst.BUTTON.REF, LineApiConst.BUTTON.REF),
@@ -128,6 +120,7 @@ public class LineApiController {
 	}
 
 	private void saveKeyContent(String replyToken, String userId, String keyword, String content) {
+		itemService.deleteSharp(userId);
 		itemService.save(userId, keyword, content);
 		this.replyText(replyToken, LineApiConst.setKakko(keyword) + LineApiConst.MESSAGE.SAVE_COMPLETE_MSG);
 	}
@@ -136,8 +129,12 @@ public class LineApiController {
 	private void refKeyWord(String replyToken, String userId, String keyword) {
 		itemService.deleteSharp(userId);
 		List<KeyWord> key = itemService.find(userId, keyword);
-		if (key.size() > 0)
-		this.replyText(replyToken, key.get(0).getContent());
+		if (key.size() > 0) {
+			this.replyText(replyToken, key.get(0).getContent());
+		} else {
+			this.replyText(replyToken, LineApiConst.setKakko(keyword) + LineApiConst.MESSAGE.NO_DATA_MSG);
+		}
+
 	}
 
 	// キャンセルをしたとき
