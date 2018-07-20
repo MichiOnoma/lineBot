@@ -39,9 +39,7 @@ public class LineApiController {
 
 	@EventMapping
 	public void handleTextMessageEvent(MessageEvent<TextMessageContent> event) throws Exception {
-		ZonedDateTime time = ZonedDateTime.now(ZoneId.systemDefault());
-		time.minusDays(LineApiConst.VAL.SHELF_LIFE);
-
+		ZonedDateTime time = ZonedDateTime.now(ZoneId.systemDefault()).minusDays(LineApiConst.VAL.SHELF_LIFE);
 		log.info("****************CleanUp!!!!" + Date.from(time.toInstant()).toString());
 
 
@@ -70,7 +68,7 @@ public class LineApiController {
 
 			// 文字セットと確認ダイアログを返す
 			setKeyWord(replyToken, userId, text);
-			
+
 		} else {
         	String content_str = list.get(0).getContent();
 

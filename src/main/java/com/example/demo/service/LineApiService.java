@@ -57,8 +57,7 @@ public class LineApiService {
 	 * SHELF_LIFE以前に登録されたものは削除するサービス
 	 */
 	public void cleanUp() {
-		ZonedDateTime time = ZonedDateTime.now(ZoneId.systemDefault());
-		time.minusDays(LineApiConst.VAL.SHELF_LIFE);
+		ZonedDateTime time = ZonedDateTime.now(ZoneId.systemDefault()).minusDays(LineApiConst.VAL.SHELF_LIFE);
 		keywordRepository.deleteByCreateddateBefore(Date.from(time.toInstant()));
 	}
 
