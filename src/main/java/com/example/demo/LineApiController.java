@@ -3,6 +3,7 @@ package com.example.demo;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -39,7 +40,10 @@ public class LineApiController {
 	@EventMapping
 	public void handleTextMessageEvent(MessageEvent<TextMessageContent> event) throws Exception {
 		ZonedDateTime time = ZonedDateTime.now(ZoneId.systemDefault());
-		log.info("****************CleanUp!!!!" + time.toString());
+		time.minusDays(LineApiConst.VAL.SHELF_LIFE);
+
+		log.info("****************CleanUp!!!!" + Date.from(time.toInstant()).toString());
+
 
 		itemService.cleanUp(); //クリーンアップ
 		handleTextContent(event.getReplyToken(), event.getMessage(), event);

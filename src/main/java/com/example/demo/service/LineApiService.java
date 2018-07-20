@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,7 +59,7 @@ public class LineApiService {
 	public void cleanUp() {
 		ZonedDateTime time = ZonedDateTime.now(ZoneId.systemDefault());
 		time.minusDays(LineApiConst.VAL.SHELF_LIFE);
-		keywordRepository.deleteByCreateddateBefore(time);
+		keywordRepository.deleteByCreateddateBefore(Date.from(time.toInstant()));
 	}
 
 	public List<KeyWord> findAll() {

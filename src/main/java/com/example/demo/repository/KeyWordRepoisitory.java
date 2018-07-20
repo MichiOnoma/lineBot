@@ -1,6 +1,6 @@
 package com.example.demo.repository;
 
-import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,6 +18,6 @@ public interface KeyWordRepoisitory extends JpaRepository<KeyWord, Integer> {
 
 	public void deleteByUserIdAndKeyword(String userId, String key);
 
-	public void deleteByCreateddateBefore(ZonedDateTime  createddate);
+	public void deleteByCreateddateBefore(Date  createddate);
 
 	}
