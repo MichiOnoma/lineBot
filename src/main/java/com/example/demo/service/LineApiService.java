@@ -50,7 +50,7 @@ public class LineApiService {
 		keyword.setContent(content);
 
 		keywordRepository.deleteByUserIdAndKeyword(userId, key);
-		return keywordRepository.save(keyword);
+		return keywordRepository.saveAndFlush(keyword);
 	}
 
 	/**
