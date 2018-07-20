@@ -108,7 +108,8 @@ public class LineApiController {
 
 	// 1番最初のキーワードを入力したとき
 	private void setKeyWord(String replyToken, String userId, String text) {
-		itemService.save(userId, LineApiConst.VAL.SHARP, text);
+		KeyWord key = itemService.save(userId, LineApiConst.VAL.SHARP, text);
+		log.info("+++++++++++++++++++++++++++++++++++"+key.getCreateddate().toString());
 		ConfirmTemplate confirmTemplate = new ConfirmTemplate(
 				LineApiConst.setKakko(text) + LineApiConst.MESSAGE.CONFIRM_MSG,
 				new MessageAction(LineApiConst.BUTTON.REF, LineApiConst.BUTTON.REF),
