@@ -1,7 +1,7 @@
 package com.example.demo;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.linecorp.bot.model.action.MessageAction;
 import com.linecorp.bot.model.message.TemplateMessage;
@@ -23,7 +23,7 @@ public final class LineApiMessageTemplate {
 	}
 
 	public static TemplateMessage getKeywordTemp() {
-		ArrayList<CarouselColumn> list = (ArrayList<CarouselColumn>) Arrays.asList(
+		List<CarouselColumn> list = Arrays.asList(
 		new CarouselColumn(null, LineApiConst.TITLE.MYSELF, LineApiConst.TITLE.MYSELF,
 				Arrays.asList(
 						new MessageAction(LineApiConst.KEYWORD.WORD1, LineApiConst.KEYWORD.WORD1),
