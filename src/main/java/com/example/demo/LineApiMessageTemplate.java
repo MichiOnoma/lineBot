@@ -28,13 +28,13 @@ public final class LineApiMessageTemplate {
 	    String imageUrl = createUri("/static/buttons/1040.jpg");
 
 		List<CarouselColumn> list = Arrays.asList(
-		new CarouselColumn(imageUrl, LineApiConst.TITLE.MYSELF, createUri("/static/buttons/1040.jpg"),
+		new CarouselColumn(imageUrl, LineApiConst.TITLE.MYSELF, LineApiConst.MESSAGE.SONOTA,
 				Arrays.asList(
 						new MessageAction(LineApiConst.KEYWORD.WORD, LineApiConst.KEYWORD.WORD),
 						new MessageAction(LineApiConst.KEYWORD.WORD1, LineApiConst.KEYWORD.WORD1),
 						new MessageAction(LineApiConst.KEYWORD.WORD2, LineApiConst.KEYWORD.WORD2)
 						)),
-		new CarouselColumn(imageUrl, LineApiConst.TITLE.MYSELF2, LineApiConst.MESSAGE.SONOTA,
+		new CarouselColumn(imageUrl, LineApiConst.TITLE.MYSELF2,LineApiConst.MESSAGE.SONOTA,
 				Arrays.asList(
 						new MessageAction(LineApiConst.KEYWORD.WORD3, LineApiConst.KEYWORD.WORD3),
 						new MessageAction(LineApiConst.KEYWORD.WORD4, LineApiConst.KEYWORD.WORD4),
