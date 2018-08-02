@@ -12,6 +12,8 @@ public final class LineApiConst {
 		public static final String CANCEL = "キャンセルしました。";
 		public static final String NO_DATA_MSG = "について保存内容はありません。";
 		public static String SAVE_COMPLETE_MSG = "の内容を保存しました。";
+
+		public static final String SONOTA = "その他、保存したい項目を手動で打つことで作成できます。";
 	}
 
 	public static class BUTTON {
@@ -43,42 +45,45 @@ public final class LineApiConst {
 	// カルーセルのタイトル
 	public static class TITLE{
 		public static final String MYSELF = "私について";
+		public static final String MYSELF2 = "私について2";
 		public static final String MYHEALTH = "私の健康について";
 		public static final String MYLINK = "私のつながりについて";
 		public static final String MYFUTURE = "私の今後について";
-		public static final String MYFUTURE2 = "今後について";
+		public static final String MYFUTURE2 = "私の今後について";
+		public static final String FUTURE = "今後について";
 		public static final String FORME = "私へ";
 	}
 
 	// 保存できるキーワード
 	public static class KEYWORD {
+		public static final String WORD = "わたしについて";
 		public static final String WORD1 = "わたしのプロフィール";
-		public static final String WORD2 = "仕事・学びの記録";
-		public static final String WORD3 = "できること";
-		public static final String WORD4 = "できないこと";
+		public static final String WORD2 = "仕事の記録";
 
-		public static final String WORD5 = "病歴";
-		public static final String WORD6 = "健康診査の記録";
-		public static final String WORD7 = "かかりつけ";
+		public static final String WORD3 = "学びの記録";
+		public static final String WORD4 = "できること";
+		public static final String WORD5 = "できないこと";
+
+		public static final String WORD6 = "病歴";
+		public static final String WORD7 = "健康診査の記録";
 		public static final String WORD8 = "薬の記録";
 
 		public static final String WORD9 = "緊急連絡先";
 		public static final String WORD10= "大切な家族";
 		public static final String WORD11= "お世話になっている人";
-		public static final String WORD12= "成年後家人";
 
+		public static final String WORD12 = "かかりつけ";
 		public static final String WORD13= "住まい";
-		public static final String WORD14= "医療";
-		public static final String WORD15= "介護";
-		public static final String WORD16= "生活費";
+		public static final String WORD14= "介護";
 
+		public static final String WORD15= "生活費";
+		public static final String WORD16= "成年後家人";
 
-		public static final String WORD17= "財産";
-		public static final String WORD18= "遺言";
-		public static final String WORD19= "形見分け";
-		public static final String WORD20= "葬式・墓";
+		public static final String WORD17= "遺言";
+		public static final String WORD18= "形見分け";
+		public static final String WORD19= "葬式・墓";
 
-		public static final String WORD22= "わたしへのメッセージ";
+		public static final String WORD20= "わたしへのメッセージ";
 		public static final String WORD21= "保険証など大事なものの場所";
 
 	}
