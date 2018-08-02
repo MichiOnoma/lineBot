@@ -13,13 +13,10 @@ import com.example.demo.domain.KeyWord;
 import com.example.demo.service.LineApiService;
 import com.linecorp.bot.client.LineMessagingClient;
 import com.linecorp.bot.model.ReplyMessage;
-import com.linecorp.bot.model.action.MessageAction;
 import com.linecorp.bot.model.event.MessageEvent;
 import com.linecorp.bot.model.event.message.TextMessageContent;
 import com.linecorp.bot.model.message.Message;
-import com.linecorp.bot.model.message.TemplateMessage;
 import com.linecorp.bot.model.message.TextMessage;
-import com.linecorp.bot.model.message.template.ConfirmTemplate;
 import com.linecorp.bot.model.response.BotApiResponse;
 import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
@@ -50,7 +47,11 @@ public class LineApiController {
 		for (int i= 0; i < LineApiConst.VAL.IGNORE_WORD.length; i++) {
 			if (text.equals(LineApiConst.VAL.IGNORE_WORD[i])) return;
 		}
-
+		// 「キーワード」と入力したとき
+		if (text.equals(LineApiConst.VAL.KEYWORD)) {
+			askKeyword(replyToken, userId);
+			return;
+		}
 
 		// 初めてかどうか見る
 		List<KeyWord> list = getLastWord(userId);
@@ -64,7 +65,6 @@ public class LineApiController {
 
 		} else {
         	String content_str = list.get(0).getContent();
-
 	        switch (text) {
 	        	// 保存
 	        	case LineApiConst.BUTTON.SAVE : {
@@ -92,6 +92,8 @@ public class LineApiController {
 	        		if (idx >=0) {
 	        			saveKeyContent(replyToken, userId,
 	        					content_str.substring(new String(LineApiConst.BUTTON.SAVE + LineApiConst.VAL.SHARP).length()), text);
+	        		} else {
+	        			this.replyText(replyToken, content_str + "," + text);
 	        		}
 	        	break;
 			}
@@ -104,13 +106,13 @@ public class LineApiController {
 	// 1番最初のキーワードを入力したとき
 	private void setKeyWord(String replyToken, String userId, String text) {
 		KeyWord key = itemService.save(userId, LineApiConst.VAL.SHARP, text);
-		ConfirmTemplate confirmTemplate = new ConfirmTemplate(
-				LineApiConst.setKakko(text) + LineApiConst.MESSAGE.CONFIRM_MSG,
-				new MessageAction(LineApiConst.BUTTON.REF, LineApiConst.BUTTON.REF),
-				new MessageAction(LineApiConst.BUTTON.SAVE, LineApiConst.BUTTON.SAVE)
-				);
-		TemplateMessage templateMessage = new TemplateMessage(LineApiConst.MESSAGE.CONFIRM_TITLE, confirmTemplate);
-		this.reply(replyToken, templateMessage);
+		this.reply(replyToken, LineApiMessageTemplate.getConfirmTemp(text));
+	}
+
+	// キーワードリスト
+	private void askKeyword(String replyToken, String userId) {
+		itemService.deleteSharp(userId);
+		this.reply(replyToken, LineApiMessageTemplate.getKeywordTemp());
 	}
 
 	// 1番最初のキーワードを入力した後、保存を選択したとき
