@@ -25,51 +25,49 @@ public final class LineApiMessageTemplate {
 	}
 
 	public static TemplateMessage getKeywordTemp() {
-	    String imageUrl = createUri("/static/buttons/1040.jpg");
-
 		List<CarouselColumn> list = Arrays.asList(
-		new CarouselColumn(imageUrl, LineApiConst.TITLE.MYSELF, LineApiConst.MESSAGE.SONOTA,
+		new CarouselColumn(LineApiConst.URL.MYSELF_URL, LineApiConst.TITLE.MYSELF, LineApiConst.MESSAGE.SONOTA,
 				Arrays.asList(
 						new MessageAction(LineApiConst.KEYWORD.WORD, LineApiConst.KEYWORD.WORD),
 						new MessageAction(LineApiConst.KEYWORD.WORD1, LineApiConst.KEYWORD.WORD1),
 						new MessageAction(LineApiConst.KEYWORD.WORD2, LineApiConst.KEYWORD.WORD2)
 						)),
-		new CarouselColumn(imageUrl, LineApiConst.TITLE.MYSELF2,LineApiConst.MESSAGE.SONOTA,
+		new CarouselColumn(LineApiConst.URL.MYSELF_URL, LineApiConst.TITLE.MYSELF2,LineApiConst.MESSAGE.SONOTA,
 				Arrays.asList(
 						new MessageAction(LineApiConst.KEYWORD.WORD3, LineApiConst.KEYWORD.WORD3),
 						new MessageAction(LineApiConst.KEYWORD.WORD4, LineApiConst.KEYWORD.WORD4),
 						new MessageAction(LineApiConst.KEYWORD.WORD5, LineApiConst.KEYWORD.WORD5)
 						)),
-		new CarouselColumn(imageUrl, LineApiConst.TITLE.MYHEALTH, LineApiConst.MESSAGE.SONOTA,
+		new CarouselColumn(LineApiConst.URL.MYHEALTH_URL, LineApiConst.TITLE.MYHEALTH, LineApiConst.MESSAGE.SONOTA,
 				Arrays.asList(
 						new MessageAction(LineApiConst.KEYWORD.WORD6, LineApiConst.KEYWORD.WORD6),
 						new MessageAction(LineApiConst.KEYWORD.WORD7, LineApiConst.KEYWORD.WORD7),
 						new MessageAction(LineApiConst.KEYWORD.WORD8, LineApiConst.KEYWORD.WORD8)
 						)),
-		new CarouselColumn(imageUrl, LineApiConst.TITLE.MYLINK, LineApiConst.MESSAGE.SONOTA,
+		new CarouselColumn(LineApiConst.URL.MYLINK_URL, LineApiConst.TITLE.MYLINK, LineApiConst.MESSAGE.SONOTA,
 				Arrays.asList(
 						new MessageAction(LineApiConst.KEYWORD.WORD9, LineApiConst.KEYWORD.WORD9),
 						new MessageAction(LineApiConst.KEYWORD.WORD10, LineApiConst.KEYWORD.WORD10),
 						new MessageAction(LineApiConst.KEYWORD.WORD11, LineApiConst.KEYWORD.WORD11)
 						)),
-		new CarouselColumn(imageUrl, LineApiConst.TITLE.MYFUTURE, LineApiConst.MESSAGE.SONOTA,
+		new CarouselColumn(LineApiConst.URL.FUTURE_URL, LineApiConst.TITLE.MYFUTURE, LineApiConst.MESSAGE.SONOTA,
 				Arrays.asList(
 						new MessageAction(LineApiConst.KEYWORD.WORD12, LineApiConst.KEYWORD.WORD12),
 						new MessageAction(LineApiConst.KEYWORD.WORD13, LineApiConst.KEYWORD.WORD13),
 						new MessageAction(LineApiConst.KEYWORD.WORD14, LineApiConst.KEYWORD.WORD14)
 						)),
-		new CarouselColumn(imageUrl, LineApiConst.TITLE.MYFUTURE2, LineApiConst.MESSAGE.SONOTA,
+		new CarouselColumn(LineApiConst.URL.FUTURE_URL, LineApiConst.TITLE.MYFUTURE2, LineApiConst.MESSAGE.SONOTA,
 				Arrays.asList(
 						new MessageAction(LineApiConst.KEYWORD.WORD15, LineApiConst.KEYWORD.WORD15),
 						new MessageAction(LineApiConst.KEYWORD.WORD16, LineApiConst.KEYWORD.WORD16)
 						)),
-		new CarouselColumn(imageUrl, LineApiConst.TITLE.FUTURE, LineApiConst.MESSAGE.SONOTA,
+		new CarouselColumn(LineApiConst.URL.FUTURE_URL, LineApiConst.TITLE.FUTURE, LineApiConst.MESSAGE.SONOTA,
 				Arrays.asList(
 						new MessageAction(LineApiConst.KEYWORD.WORD17, LineApiConst.KEYWORD.WORD17),
 						new MessageAction(LineApiConst.KEYWORD.WORD18, LineApiConst.KEYWORD.WORD18),
 						new MessageAction(LineApiConst.KEYWORD.WORD19, LineApiConst.KEYWORD.WORD19)
 						)),
-		new CarouselColumn(imageUrl, LineApiConst.TITLE.FORME, LineApiConst.TITLE.FORME,
+		new CarouselColumn(LineApiConst.URL.FORME_URL, LineApiConst.TITLE.FORME, LineApiConst.TITLE.FORME,
 				Arrays.asList(
 						new MessageAction(LineApiConst.KEYWORD.WORD20, LineApiConst.KEYWORD.WORD20),
 						new MessageAction(LineApiConst.KEYWORD.WORD21, LineApiConst.KEYWORD.WORD21)

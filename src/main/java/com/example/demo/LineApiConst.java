@@ -53,6 +53,17 @@ public final class LineApiConst {
 		public static final String FUTURE = "今後について";
 		public static final String FORME = "私へ";
 	}
+	public static class URL {
+		private static final String PRE_URL = "https://pbs.twimg.com/media/";
+		private static final String JPG_URL = ".jpg";
+		public static final String MYSELF_URL =  PRE_URL + "DjwmXTuXgAAZS17" + JPG_URL;
+		public static final String MYHEALTH_URL =  PRE_URL + "DjwmXUGXsAAiRty" + JPG_URL;
+		public static final String MYLINK_URL =  PRE_URL + "DjwmXUaX0AIiob3" + JPG_URL;
+		public static final String FUTURE_URL =  PRE_URL + "DjwmXVKXgAAnSJb" + JPG_URL;
+		public static final String FORME_URL =  PRE_URL + "DjwmXVKXgAAnSJb" + JPG_URL;
+	}
+
+
 
 	// 保存できるキーワード
 	public static class KEYWORD {
@@ -85,9 +96,7 @@ public final class LineApiConst {
 
 		public static final String WORD20= "わたしへのメッセージ";
 		public static final String WORD21= "保険証など大事なものの場所";
-
 	}
-
 
 	private final static String KAKKO1 = "「";
 	private final static String KAKKO2 = "」";
