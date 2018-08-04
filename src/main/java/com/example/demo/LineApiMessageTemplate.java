@@ -59,18 +59,20 @@ public final class LineApiMessageTemplate {
 		new CarouselColumn(LineApiConst.URL.FUTURE_URL, LineApiConst.TITLE.MYFUTURE2, LineApiConst.MESSAGE.SONOTA,
 				Arrays.asList(
 						new MessageAction(LineApiConst.KEYWORD.WORD15, LineApiConst.KEYWORD.WORD15),
-						new MessageAction(LineApiConst.KEYWORD.WORD16, LineApiConst.KEYWORD.WORD16)
+						new MessageAction(LineApiConst.KEYWORD.WORD16, LineApiConst.KEYWORD.WORD16),
+						new MessageAction(LineApiConst.KEYWORD.WORD17, LineApiConst.KEYWORD.SONOTA)
 						)),
 		new CarouselColumn(LineApiConst.URL.FUTURE_URL, LineApiConst.TITLE.FUTURE, LineApiConst.MESSAGE.SONOTA,
 				Arrays.asList(
-						new MessageAction(LineApiConst.KEYWORD.WORD17, LineApiConst.KEYWORD.WORD17),
 						new MessageAction(LineApiConst.KEYWORD.WORD18, LineApiConst.KEYWORD.WORD18),
-						new MessageAction(LineApiConst.KEYWORD.WORD19, LineApiConst.KEYWORD.WORD19)
+						new MessageAction(LineApiConst.KEYWORD.WORD19, LineApiConst.KEYWORD.WORD19),
+						new MessageAction(LineApiConst.KEYWORD.WORD17, LineApiConst.KEYWORD.SONOTA)
 						)),
 		new CarouselColumn(LineApiConst.URL.FORME_URL, LineApiConst.TITLE.FORME, LineApiConst.TITLE.FORME,
 				Arrays.asList(
 						new MessageAction(LineApiConst.KEYWORD.WORD20, LineApiConst.KEYWORD.WORD20),
-						new MessageAction(LineApiConst.KEYWORD.WORD21, LineApiConst.KEYWORD.WORD21)
+						new MessageAction(LineApiConst.KEYWORD.WORD21, LineApiConst.KEYWORD.WORD21),
+						new MessageAction(LineApiConst.KEYWORD.WORD17, LineApiConst.KEYWORD.SONOTA)
 						))
 		);
 

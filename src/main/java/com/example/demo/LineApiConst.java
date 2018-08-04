@@ -96,6 +96,7 @@ public final class LineApiConst {
 
 		public static final String WORD20= "わたしへのメッセージ";
 		public static final String WORD21= "保険証など大事なものの場所";
+		public static final String SONOTA = "その他";
 	}
 
 	private final static String KAKKO1 = "「";
