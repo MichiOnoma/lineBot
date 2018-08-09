@@ -11,8 +11,8 @@ public final class LineApiConst {
 		public static final String SAVE_MSG = "の内容を入力してください。";
 		public static final String CANCEL = "キャンセルしました。最初からやり直してください。";
 		public static final String NO_DATA_MSG = "について保存内容はありません。最初からやり直してください。";
+		public static final String NO_DATA_MSG2 = "保存内容はありません。";
 		public static String SAVE_COMPLETE_MSG = "の内容を保存しました。";
-
 		public static final String SONOTA = "その他、保存したい項目を手動で打つことで作成できます。";
 	}
 
@@ -103,7 +103,7 @@ public final class LineApiConst {
 
 		public static final String WORD20= "わたしへのメッセージ";
 		public static final String WORD21= "保険証など大事なものの場所";
-		public static final String SONOTA = "";
+		public static final String SONOTA = " ";
 	}
 
 	private final static String KAKKO1 = "「";

@@ -53,7 +53,7 @@ public class LineApiController {
 			return;
 		} else if (text.equals(LineApiConst.VAL.GAZO)) {
 			LineApiMakePict pic = new LineApiMakePict();
-			this.replyText(replyToken, pic.getResult(userId));
+			this.replyText(replyToken, pic.getResult(itemService.findByUserId(userId)));
 			return;
 		}
 		// 初めてかどうか見る
@@ -96,7 +96,7 @@ public class LineApiController {
 	        			saveKeyContent(replyToken, userId,
 	        					content_str.substring(new String(LineApiConst.BUTTON.SAVE + LineApiConst.VAL.SHARP).length()), text);
 	        		} else {
-	        			this.replyText(replyToken, content_str + "," + text);
+	        			cancelKeyWord(replyToken, userId);
 	        		}
 	        	break;
 			}
