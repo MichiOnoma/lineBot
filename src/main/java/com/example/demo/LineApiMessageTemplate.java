@@ -24,7 +24,7 @@ public final class LineApiMessageTemplate {
 
 	public static TemplateMessage getKeywordTemp() {
 		List<CarouselColumn> list = Arrays.asList(
-		new CarouselColumn(LineApiConst.KEYWORD.SONOTA, LineApiConst.TITLE.MYSELF, LineApiConst.MESSAGE.SONOTA,
+		new CarouselColumn(null, LineApiConst.TITLE.MYSELF, LineApiConst.MESSAGE.SONOTA,
 				Arrays.asList(
 						new MessageAction(LineApiConst.KEYWORD.WORD, LineApiConst.KEYWORD.WORD),
 						new MessageAction(LineApiConst.KEYWORD.WORD1, LineApiConst.KEYWORD.WORD1),
