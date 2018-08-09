@@ -35,7 +35,7 @@ public final class LineApiConst {
 		public static final int HABA =6;
 		public static final String NG_WORD = "#保存#参照#キャンセル#";
 		public static final String SHARP = "#";
-		public static final String KAI = "%0D%0A";
+		public static final String KAI = "\n";
 		public static final String HOSI ="●";
 		public static final String SEN = "    ";
 		public static final String KEYWORD = "キーワード";
