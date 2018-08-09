@@ -3,8 +3,6 @@ package com.example.demo;
 import java.util.Arrays;
 import java.util.List;
 
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import com.linecorp.bot.model.action.MessageAction;
 import com.linecorp.bot.model.message.TemplateMessage;
 import com.linecorp.bot.model.message.template.CarouselColumn;
@@ -60,33 +58,22 @@ public final class LineApiMessageTemplate {
 				Arrays.asList(
 						new MessageAction(LineApiConst.KEYWORD.WORD15, LineApiConst.KEYWORD.WORD15),
 						new MessageAction(LineApiConst.KEYWORD.WORD16, LineApiConst.KEYWORD.WORD16),
-						new MessageAction(LineApiConst.KEYWORD.WORD17, LineApiConst.KEYWORD.SONOTA)
+						new MessageAction(LineApiConst.KEYWORD.SONOTA, LineApiConst.KEYWORD.SONOTA)
 						)),
 		new CarouselColumn(LineApiConst.URL.FUTURE_URL, LineApiConst.TITLE.FUTURE, LineApiConst.MESSAGE.SONOTA,
 				Arrays.asList(
 						new MessageAction(LineApiConst.KEYWORD.WORD18, LineApiConst.KEYWORD.WORD18),
 						new MessageAction(LineApiConst.KEYWORD.WORD19, LineApiConst.KEYWORD.WORD19),
-						new MessageAction(LineApiConst.KEYWORD.WORD17, LineApiConst.KEYWORD.SONOTA)
+						new MessageAction(LineApiConst.KEYWORD.SONOTA, LineApiConst.KEYWORD.SONOTA)
 						)),
 		new CarouselColumn(LineApiConst.URL.FORME_URL, LineApiConst.TITLE.FORME, LineApiConst.TITLE.FORME,
 				Arrays.asList(
 						new MessageAction(LineApiConst.KEYWORD.WORD20, LineApiConst.KEYWORD.WORD20),
 						new MessageAction(LineApiConst.KEYWORD.WORD21, LineApiConst.KEYWORD.WORD21),
-						new MessageAction(LineApiConst.KEYWORD.WORD17, LineApiConst.KEYWORD.SONOTA)
+						new MessageAction(LineApiConst.KEYWORD.SONOTA, LineApiConst.KEYWORD.SONOTA)
 						))
 		);
-
 		CarouselTemplate cal = new CarouselTemplate(list);
 		return 	new TemplateMessage(LineApiConst.MESSAGE.KEYWORD_TITLE, cal);
 	}
-
-
-
-    private static String createUri(String path) {
-        return ServletUriComponentsBuilder.fromCurrentContextPath()
-                                          .path(path).build()
-                                          .toUriString();
-    }
-
-
 }

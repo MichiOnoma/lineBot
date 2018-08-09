@@ -9,8 +9,8 @@ public final class LineApiConst {
 
 		public static final String NG_WORD = "この文字は利用できません。";
 		public static final String SAVE_MSG = "の内容を入力してください。";
-		public static final String CANCEL = "キャンセルしました。";
-		public static final String NO_DATA_MSG = "について保存内容はありません。";
+		public static final String CANCEL = "キャンセルしました。最初からやり直してください。";
+		public static final String NO_DATA_MSG = "について保存内容はありません。最初からやり直してください。";
 		public static String SAVE_COMPLETE_MSG = "の内容を保存しました。";
 
 		public static final String SONOTA = "その他、保存したい項目を手動で打つことで作成できます。";
@@ -32,15 +32,22 @@ public final class LineApiConst {
 	// 予約語
 	public static class VAL {
 		public static final int SHELF_LIFE = 7;
+		public static final int HABA =6;
 		public static final String NG_WORD = "#保存#参照#キャンセル#";
 		public static final String SHARP = "#";
+		public static final String KAI = "%0D%0A";
+		public static final String HOSI ="●";
+		public static final String SEN = "    ";
+		public static final String KEYWORD = "キーワード";
+		public static final String GAZO = "画像にする";
 		public static final String[] IGNORE_WORD = {
 			"絆ノートとは", "きずなノートとは", "きずなノート", "絆ノート",
 			"使い方", "つかいかた",
-			"画像にする"
+			" 画像にする"
 		};
-		public static final Object KEYWORD = "キーワード";
 	}
+
+
 
 	// カルーセルのタイトル
 	public static class TITLE{
@@ -96,7 +103,7 @@ public final class LineApiConst {
 
 		public static final String WORD20= "わたしへのメッセージ";
 		public static final String WORD21= "保険証など大事なものの場所";
-		public static final String SONOTA = "その他";
+		public static final String SONOTA = "";
 	}
 
 	private final static String KAKKO1 = "「";

@@ -51,8 +51,11 @@ public class LineApiController {
 		if (text.equals(LineApiConst.VAL.KEYWORD)) {
 			askKeyword(replyToken, userId);
 			return;
+		} else if (text.equals(LineApiConst.VAL.GAZO)) {
+			LineApiMakePict pic = new LineApiMakePict();
+			this.replyText(replyToken, pic.getResult(userId));
+			return;
 		}
-
 		// 初めてかどうか見る
 		List<KeyWord> list = getLastWord(userId);
 		if(list.size() == 0) {
@@ -121,6 +124,7 @@ public class LineApiController {
 		this.replyText(replyToken, LineApiConst.setKakko(keyword) + LineApiConst.MESSAGE.SAVE_MSG);
 	}
 
+	// 内容を保存したとき
 	private void saveKeyContent(String replyToken, String userId, String keyword, String content) {
 		itemService.deleteSharp(userId);
 		itemService.save(userId, keyword, content);
@@ -136,14 +140,12 @@ public class LineApiController {
 		} else {
 			this.replyText(replyToken, LineApiConst.setKakko(keyword) + LineApiConst.MESSAGE.NO_DATA_MSG);
 		}
-
 	}
 
 	// キャンセルをしたとき
 	private void cancelKeyWord(String replyToken, String userId) {
 		itemService.deleteSharp(userId);
 		this.replyText(replyToken, LineApiConst.MESSAGE.CANCEL);
-
 	}
 
 	private void replyText(@NonNull String replyToken, @NonNull String message) {
