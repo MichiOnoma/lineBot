@@ -63,11 +63,7 @@ public final class LineApiConst {
 	public static class URL {
 		private static final String PRE_URL = "https://pbs.twimg.com/media/";
 		private static final String JPG_URL = ".jpg";
-		public static final String MYSELF_URL =  PRE_URL + "DjwmXTuXgAAZS17" + JPG_URL;
-		public static final String MYHEALTH_URL =  PRE_URL + "DjwmXUGXsAAiRty" + JPG_URL;
-		public static final String MYLINK_URL =  PRE_URL + "DjwmXUaX0AIiob3" + JPG_URL;
-		public static final String FUTURE_URL =  PRE_URL + "DjwmXVKXgAAnSJb" + JPG_URL;
-		public static final String FORME_URL =  PRE_URL + "DjwmXVKXgAAnSJb" + JPG_URL;
+		public static final String MYSELF_URL =  PRE_URL + "DkLqL5RUwAAAfCd" + JPG_URL;
 	}
 
 
